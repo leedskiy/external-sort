@@ -1,24 +1,24 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <math.h>
 
 using namespace std;
 
-fstream f("res.txt", ios::out);
-fstream f1("f1.txt", ios::out);
-fstream f2("f2.txt", ios::out);
-size_t sizet = 0;
-
 void Create(string name);
-void Sort(fstream& ff);
+void Sort(fstream& ff, size_t sizet, fstream& f, fstream& f1, fstream& f2);
 
 int main() {
+    fstream f("res.txt", ios::out);
+    fstream f1("f1.txt", ios::out);
+    fstream f2("f2.txt", ios::out);
+    size_t sizet = 0;
+
     string name = "array.txt";
 
     Create(name);
     fstream ff(name);
-    Sort(ff);
+    Sort(ff, sizet, f, f1, f2);
 
     return 0;
 }
@@ -37,7 +37,7 @@ void Create(string name) {
     fout.close();
 }
 
-void Sort(fstream& ff) {
+void Sort(fstream& ff, size_t sizet, fstream& f, fstream& f1, fstream& f2) {
 
     int x1, x2, x3, temp;
 
